@@ -27,6 +27,9 @@ This data set complies with the following requirements:
 
 According to this model this data set contains 6 x 30 x 2 x 2 x 2 x 3 x 2 = 8640 observations and 8 columns
 
+This data set is provided as a data frame in a file called "TidyData.txt"
+
+The Code Book for this data set is provided in a file called "CodeBook.md"
 
 ## 2. The Script
 

@@ -88,5 +88,5 @@ data2$Measurement <- gsub("(f|t)(Body|Gravity)","\\1_\\2_",data2$Measurement)   
 data2 <- separate(data2,Measurement,into=c("Domain","Component","Measurement"),sep="_")
 print(sprintf("* Rows: %d, Cols: %d",nrow(data2),ncol(data2)))
 
-write.table(data2,"result.txt",row.names=F)                                         # write result
+write.table(data2,"TidyData.txt",row.names=F)                                         # write result
 print("Done")
