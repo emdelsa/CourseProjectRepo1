@@ -47,12 +47,23 @@ The script processes the raw data in several steps:
 3. Process test data
 4. Bind training and and test sets
 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. To do this the following operations are performed:
-5.1. Split the data by activity and subject
-5.2. Compute the average on the splitted groups
-5.3. Select observations matching the desired model, that is, observations that can be decomposed in Acticity, Subject, Domain, Component, Axis, Statistical Variable and Average. This step trims out some observations but we end up with a clean and common model for all the observations
-5.4. Separate and rename columns with meaningfull names
+    1. Split the data by activity and subject
+    2. Compute the average on the splitted groups
+    3. Select observations matching the desired model, that is, observations that can be decomposed in Acticity, Subject, Domain, Component, Axis, Statistical Variable and Average. This step trims out some observations but we end up with a clean and common model for all the observations
+    4. Separate and rename columns with meaningfull names
 
 6. Finally save the data using write.table, without row names, as required in the assignment
 
-
-The script process the data 
+The script produces the following output messages:
+```
+[1] "Preparing activity labels and variable names"
+[1] "Processing training data"
+[1] "* Rows: 7352, Cols: 68"
+[1] "Processing test data"
+[1] "* Rows: 2947, Cols: 68"
+[1] "Merging test and training data"
+[1] "* Rows: 10299, Cols: 68"
+[1] "Producing result"
+[1] "* Rows: 8640, Cols: 8"
+[1] "Done"
+```
