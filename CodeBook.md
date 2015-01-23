@@ -1,15 +1,8 @@
-# CourseProjectRepo1
-Repo for the Coursera "Getting and Cleaning Data" Course Project
+## Code Book
+### Coursera Getting and Cleaning Data Course Project
 
-This repository contains the following files:
-
-* README.md, this document
-* run_analysis.R, an R script to produce the tidy data set required by the assignment
-* CodeBook.md, a code book for the tidy data set
-
-The tidy data set has been uploaded directly to the course Project
-
-## 1. The Tidy Data Set
+### 1. Introduction
+This tidy data set has been prepared for the Course Project assignment. 
 
 This tidy data set was prepared from the raw data provided by www.smartlab.ws. The data is the result of a series of experiments carried out with a group of **30 subjects** within an age bracket of 19-48 years. Each subject performed **six activities** (WALKING, WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, samples of 3-axial linear acceleration and 3-axial angular velocity were captured at a constant rate of 50Hz. The obtained dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the **training data** and 30% the **test data**. 
 
@@ -27,32 +20,118 @@ This data set complies with the following requirements:
 
 According to this model this data set contains 6 x 30 x 2 x 2 x 2 x 3 x 2 = 8640 observations and 8 columns
 
+This data set is provided as a data frame in a file called "result.txt""
 
-## 2. The Script
+### 2. Data Dictionary
 
-This script performs the following operations on the Course Project dataset:
+__Activity__
 
-1. Extracts only the measurements with mean() and std() suffixes for each measurement. 
-2. Uses descriptive activity names to name the activities in the data set
-3. Correct variable names so they do not contain "()" or "-". 
-4. Merges the training and the test sets to create one data set.
-5. creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+Activity performed by the subject when the measurement was taken.
 
-A function called cleanData() has been created in order to process the test and training data sets in exactly the same manner, thus allowing us to bind the two data sets by row.
+Format: 
 
-The script processes the raw data in several steps:
+* Character
 
-1. Read and prepare data common to both sets: activity labels and variable names
-2. Process training data
-3. Process test data
-4. Bind training and and test sets
-5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. To do this the following operations are performed:
-5.1. Split the data by activity and subject
-5.2. Compute the average on the splitted groups
-5.3. Select observations matching the desired model, that is, observations that can be decomposed in Acticity, Subject, Domain, Component, Axis, Statistical Variable and Average. This step trims out some observations but we end up with a clean and common model for all the observations
-5.4. Separate and rename columns with meaningfull names
+Values: (self explanatory)
 
-6. Finally save the data using write.table, without row names, as required in the assignment
+* LAYING     
+* SITTING
+* STANDING
+* WALKING
+* WALING_DOWNSTAIRS
+* WALKING_UPSTAIRS
+
+__Subject__
+
+Subject being measured
+
+Format: 
+
+* Integer
+
+Values: 
+
+* 1..30
+
+__Domain__
+
+Domain in which the measurement has been estimated
+
+Format: 
+
+* Character (1)
+
+Values:
+
+* t : Time Domain
+* f : Frequency Domain (Fast Fourier Transform)
+
+__Component__
+
+MOtion component to which the measurement corresponds (see Introduction)
+
+Format:
+
+* Character
+
+Values:
+
+* Gravity: The component extracted from the measurement by a low pass filter
+* Body: The component of the motion left after filtering out Gravity
 
 
-The script process the data 
+__Measurement__
+
+Name of the physical variable being measured.  
+
+Format:
+
+* Character
+
+Values:
+
+* Acc : Acceleration
+* AccJerk : Acceleration Jerk
+* Gyro : Angular velocity
+* GyroJerk : Angular velocity Jerk
+
+__Axis__
+
+The spatial axis of the measurement
+
+Format:
+
+* Character (1)
+
+Values:
+
+* X: The x-axis of the sensor
+* Y: The y_axis of the sensor
+* Z: The z-axis of the sensor
+
+
+__Variable__
+
+The statistical estimation variable
+
+Format:
+
+* Character
+
+Values:
+
+* mean: The mean
+* std: The standard deviation
+
+
+__Average__
+
+Average of the normalized value of the variables. All the measurements in the original data source are normalized
+
+Format:
+
+* Numeric
+
+Values:
+
+* -1..+1
